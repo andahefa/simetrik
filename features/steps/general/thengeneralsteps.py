@@ -66,10 +66,10 @@ def step_impl(context, element_name, element_type, expression):
 def step_option(context, title, page):
     message_error = f"El texto '{title}' no se encuentra en la pagina {page}."
     if page == "Vuelos":
-        assert context.flights_page.validate_load_page(title), message_error
+        assert context.all_contexts['flights'].validate_load_page(title), message_error
     elif page == "Alojamientos":
-        assert context.accommodations_page.validate_load_page(title), message_error
+        assert context.all_contexts['accommodations'].validate_load_page(title), message_error
     elif page == "Carros":
-        assert context.cars_page.validate_load_page(title), message_error
+        assert context.all_contexts['cars'].validate_load_page(title), message_error
     elif page == "Paquetes":
-        assert context.packages_page.validate_load_pages(title), message_error
+        assert context.all_contexts['packages'].validate_load_pages(title), message_error
